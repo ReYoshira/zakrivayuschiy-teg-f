@@ -53,11 +53,11 @@ ol {
 }
 
 button {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer; 
-    outline: none; 
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
 }
 
 dialog {
