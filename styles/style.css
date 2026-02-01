@@ -18,7 +18,6 @@
   font-variation-settings: 'wght' var(--normal);
   display: flex;
   flex-direction: column;
-  justify-content: center; 
   align-items: center;
   /*Я сделал не по ТЗ, т.к. с repeating-linear-gradient у меня ломался градиент при изменении масштаба изображения*/
   background-image: 
@@ -30,6 +29,7 @@
 }
  
 .title-container {
+  box-sizing: border-box;
   margin-block: 100px;
   padding-block: 120px;
   padding-inline: 16px;
@@ -58,9 +58,9 @@
   gap: 50px;
 }
 
-.cards-item{
-  border: 2px solid var(--accent-color);
+.card {
   inline-size: clamp(375px, 260.56px + 30.52vw, 700px);
+  border: 2px solid var(--accent-color);
   background-color: var(--bg-color);
 }
 
@@ -69,20 +69,20 @@
   font-size: 18px;
   margin-block: 4px;
   margin-inline: 10px;
+  line-height: 22px;
 }
 
 .card-image-container {
-  border-top: 2px solid var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
 .img {
-  inline-size: 100%;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
   block-size: 100%;
-  height:371px;
+  inline-size: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
 
 .decorative-element {
@@ -93,7 +93,16 @@
   font-weight: 400;
   font-size: 14px;
   color: transparent;
-  -webkit-text-stroke: 1px var(--shadow-color);
+  mix-blend-mode: hard-light;
+  text-shadow: 0 0 1px var(--shadow-color);
+}
+
+@supports (-webkit-text-stroke: 1px var(--shadow-color)) {
+  .decorative-element {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--shadow-color);
+    text-shadow: none;
+  }
 }
 
 .card-text-container {
@@ -167,6 +176,36 @@
   font-size: 14px;
   margin-inline:20px;
   margin-block-end: 17px;
+}
+
+/*filter*/
+
+.contrast_filter {
+  filter: contrast(150%);
+}
+
+.invert_filter {
+  filter: invert(75%);
+}
+
+.blur_filter {
+  filter:blur(2px);
+}
+
+.filter_saturate_blur {
+  filter: saturate(40%) blur(1px);
+}
+
+.filter_rotate {
+  filter: hue-rotate(180deg);
+}
+
+.filter_sepia {
+  filter: sepia(60%);
+}
+
+.filter_brightness {
+  filter:brightness(0.9);
 }
 
 /*heart*/
@@ -283,7 +322,7 @@
   block-size: 100%;
   inline-size: 100%;
   background-color: var(--accent-color);
-  transform: translate(-100%, -30%);
+  transform: translate(-100%, -100%);
   transition: transform 0.4s ease-out;
   z-index: -1;
 }
@@ -314,7 +353,7 @@
   block-size: 100%;
   inline-size: 100%;
   background-color: var(--accent-color);
-  transform: translate(-100%, -30%);
+  transform: translate(-100%, -100%);
   transition: transform 0.4s ease-out;
   z-index: -1;
 }
@@ -335,6 +374,10 @@
 /*Адаптив*/
 
 @media (width >= 1440px) {
+
+  .title-container{
+    padding-block: 130px;
+  }
 
   .header_title {
     font-size: 65px;

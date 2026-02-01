@@ -63,13 +63,18 @@
     }
 }
 
-.is-liked .heart {
-  animation: heartbeat 0.3s ease-in 0.1s 1 forwards;
-  transform-origin: center;
-}
 
-.is-liked .sparks {
+.is-liked {
+  
+  .heart {
+    animation: heartbeat 0.3s ease-in 0.1s 1 forwards;
+    transform-origin: center;
+  }
+
+  .sparks {
   animation: sparks 0.3s ease-in 0.3s 1 forwards;
+  }
+
 }
 
 @keyframes heartbeat {
