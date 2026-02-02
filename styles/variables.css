@@ -1,10 +1,13 @@
 :root {
-    --main-font:Inter;
-    --additional-font:'Press Start 2P';
+    --main-font:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+    --additional-font:'Press Start 2P', fantasy;
     --normal:410;
     --bold:715;
     --shadow-color:rgba(255, 255, 255, 0.5);
     --accent-color:#000;
+    --decorative-color:rgba(0, 0, 0, 0.5);
     --bg-color:#fff;
     --transition-text-color:#fff;
     --animation-fill-color:#FF0000;
